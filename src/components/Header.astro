@@ -1,0 +1,23 @@
+---
+const options = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
+---
+
+<div class="p-4 lg:hidden">
+    <button class="cursor-pointer rounded-md border-[3px] p-2" id="btnMenu">
+        <i class="fa-solid fa-bars fa-2xl"></i>
+    </button>
+</div>
+<nav class={`border-2 text-center lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
+    {
+        options.map(option => <a href="#" class="block p-3 lg:inline-block">{option}</a>)
+    }
+</nav>
+
+<script>
+    const btnMenu = document.getElementById("btnMenu");
+    const nav = document.getElementById("nav");
+
+    btnMenu.addEventListener("click", () => {
+        nav.classList.toggle("hidden");
+    });
+</script>
