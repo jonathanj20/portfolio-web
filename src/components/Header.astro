@@ -7,16 +7,16 @@ const options = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
         <i class="fa-solid fa-bars fa-2xl"></i>
     </button>
 </div>
-<nav class={`border-2 text-center lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
+<nav class={`hidden border-2 text-center lg:block lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
     {
         options.map(option => <a href="#" class="block p-3 lg:inline-block">{option}</a>)
     }
 </nav>
 
 <script>
-    const btnMenu = document.getElementById("btnMenu");
-    const nav = document.getElementById("nav");
-
+    const btnMenu = document.getElementById("btnMenu") as HTMLElement;
+    const nav = document.getElementById("nav") as HTMLElement;
+    
     btnMenu.addEventListener("click", () => {
         nav.classList.toggle("hidden");
     });
