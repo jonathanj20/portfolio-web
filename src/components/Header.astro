@@ -1,13 +1,13 @@
 ---
-const options = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
+const options: string[] = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
 ---
 
-<div class="p-4 lg:hidden">
+<div class="p-4 lg:hidden mb-20">
     <button class="cursor-pointer rounded-md border-[3px] p-2" id="btnMenu">
         <i class="fa-solid fa-bars fa-2xl"></i>
     </button>
 </div>
-<nav class={`hidden border-2 text-center lg:block lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
+<nav class={`hidden border-2 text-center mb-20 lg:block lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
     {
         options.map(option => <a href="#" class="block p-3 lg:inline-block">{option}</a>)
     }

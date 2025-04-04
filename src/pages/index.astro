@@ -2,9 +2,15 @@
 import './src/styles/global.css';
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout>
 	<Header/>
+	<div class="bg-white border-[3px] border-[#b2a7dc] h-80 w-80 mt-[-20px] animate-[spin_3s_linear_infinite] fixed mx-auto left-0 right-0 z-[-1]"></div>
+	<div class="flex flex-col lg:justify-between lg:flex-row">
+		<AboutMe/>
+		<img src="/public/mifoto_prueba.png" alt="Jonathan Posada" class="w-[60%] mx-auto">
+	</div>
 </Layout>
 
