@@ -3,8 +3,10 @@ const options: string[] = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
 ---
 
 <div class=`p-4 lg:hidden`>
-    <button class="cursor-pointer rounded-md border-[3px] p-2" id="btnMenu">
-        <i class="fa-solid fa-bars fa-2xl"></i>
+    <button class="cursor-pointer rounded-md border-[3px] p-2 w-11 h-11 flex items-center justify-center flex-col gap-y-0.5" id="btnMenu">
+         <div class="p-0.5 w-[100%] bg-black transition-all duration-300" id="first-line"></div>
+         <div class="p-0.5 w-[100%] bg-black transition-all duration-300" id="second-line"></div>
+         <div class="p-0.5 w-[100%] bg-black transition-all duration-300" id="third-line"></div>
     </button>
 </div>
 <nav class={`hidden border-2 text-center mb-24 lg:block lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
@@ -19,5 +21,18 @@ const options: string[] = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
     
     btnMenu.addEventListener("click", () => {
         nav.classList.toggle("hidden");
+        animateLines();
     });
+
+    const animateLines = () => {
+        const firstLine = document.getElementById("first-line") as HTMLElement;
+        const secondLine = document.getElementById("second-line") as HTMLElement;
+        const thirdLine = document.getElementById("third-line") as HTMLElement;
+
+        firstLine.classList.toggle("rotate-45");
+        secondLine.classList.toggle("hidden");
+        thirdLine.classList.toggle("rotate-[-0.12turn]");
+        thirdLine.classList.toggle("relative");
+        thirdLine.classList.toggle("bottom-1.5");
+    }
 </script>
