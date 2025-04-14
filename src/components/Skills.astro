@@ -1,0 +1,14 @@
+---
+import { Icon } from "astro-icon/components";
+
+const skills = ["html", "css", "javascript", "git"];
+---
+
+<section class="px-5 mt-10">
+    <h2 class="text-[#6C46F4] text-3xl text-center lg:text-start">Habilidades</h2>
+    <div class="flex gap-x-7 flex-wrap  mt-5 justify-center lg:justify-start">
+        {
+            skills.map(skill => <Icon name={skill}  is:inline={true} title={skill} size={55} />)
+        }
+    </div>
+</section>
