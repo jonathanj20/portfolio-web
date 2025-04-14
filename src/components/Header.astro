@@ -21,12 +21,12 @@ const options: string[] = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
     const btnMenu = document.getElementById("btnMenu") as HTMLElement;
     const nav = document.getElementById("nav") as HTMLElement;
     
-    btnMenu.addEventListener("click", () => {
+    btnMenu.addEventListener("click", (): void => {
         nav.classList.toggle("hidden");
         animateLines();
     });
 
-    const animateLines = () => {
+    const animateLines = (): void => {
         const firstLine = document.getElementById("first-line") as HTMLElement;
         const secondLine = document.getElementById("second-line") as HTMLElement;
         const thirdLine = document.getElementById("third-line") as HTMLElement;
