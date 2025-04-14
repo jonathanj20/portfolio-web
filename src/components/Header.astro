@@ -1,5 +1,27 @@
 ---
-const options: string[] = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
+interface Option{
+    name: string,
+    href: string
+}
+
+const options: Option[] = [                           
+    {
+        name: "inicio",
+        href: "#"
+    },
+    {
+        name: "Habilidades",
+        href: "#skills",
+    },
+    {
+        name: "Proyectos",
+        href: "#projects",
+    },
+    {
+        name: "Contacto",
+        href: "#contact",
+    }
+];
 ---
 
 <header class="fixed top-0 left-0 w-screen z-10 mx-auto block bg-white">
@@ -12,7 +34,7 @@ const options: string[] = ["Inicio", "Habilidades", "Proyectos", "Contacto"];
     </div>
     <nav class={`hidden border-2 text-center lg:block lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
         {
-            options.map(option => <a href="#" class="block p-3 lg:inline-block">{option}</a>)
+            options.map(option => <a href={option.href} class="block p-3 lg:inline-block">{option.name}</a>)
         }
     </nav>
 </header>
