@@ -1,0 +1,53 @@
+---
+interface Project {
+    image: string,
+    technologies: string[],
+    name: string,
+    description: string,
+    link_web?: string,
+    link_repo:string
+}
+
+const projects: Project[] = [
+    {
+        image: "/portfolio-web/src/images/plantas-vs-zombies.png",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        name: "Plantas vs Zombies",
+        description: "Clon de plantas vs zombies hecho con la librería p5js",
+        link_web: "https://jonathanj20.github.io/plantas-vs-zombies/",
+        link_repo: "https://github.com/jonathanj20/plantas-vs-zombies"
+    },
+    {
+        image: "/portfolio-web/src/images/laberinto.png",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        name: "Laberinto",
+        description: "Juego creado utilizando el elemento canvas de HTML",
+        link_web: "https://jonathanj20.github.io/laberinto-canvas-html/",
+        link_repo: "https://github.com/jonathanj20/laberinto-canvas-html"
+    }
+];
+---
+
+<section class="px-5 mt-10" id="projects">
+    <h2 class="text-[#6C46F4] text-3xl text-center lg:text-start">Proyectos</h2>
+    <div class="mt-5 space-y-10 lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0">
+        {
+            projects.map(project => {
+                return(
+                    <div class="w-[70%] mx-auto border-2 lg:w-auto">
+                        <img src={project.image} alt={project.name} class="w-full lg:h-[14em]">
+                        <div class="p-3">
+                            <p class="mt-2">{project.technologies.join(" - ")}</p>
+                            <h2 class="mt-2">{project.name}</h2>
+                            <p class="mt-2">{project.description}</p>
+                        </div>
+                        <div class="flex flex-row justify-center gap-5 my-2">
+                            <a href={project.link_web} target="_blank" class="p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded">Ver proyecto</a>
+                            <a href={project.link_repo} target="_blank" class="p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded">Repositorio</a>
+                        </div>
+                    </div>
+                )
+            })
+        }
+    </div>
+</section>

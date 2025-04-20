@@ -34,7 +34,7 @@ const options: Option[] = [
     </div>
     <nav class={`hidden border-2 text-center lg:block lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
         {
-            options.map(option => <a href={option.href} class="block p-3 lg:inline-block">{option.name}</a>)
+            options.map(option => <a href={option.href} class="block p-3 lg:inline-block options">{option.name}</a>)
         }
     </nav>
 </header>
@@ -42,6 +42,7 @@ const options: Option[] = [
 <script>
     const btnMenu = document.getElementById("btnMenu") as HTMLElement;
     const nav = document.getElementById("nav") as HTMLElement;
+    const options = Array.from(document.getElementsByClassName("options"));
     
     btnMenu.addEventListener("click", (): void => {
         nav.classList.toggle("hidden");
@@ -59,4 +60,9 @@ const options: Option[] = [
         thirdLine.classList.toggle("relative");
         thirdLine.classList.toggle("bottom-1.5");
     }
+
+    options.forEach(option => option.addEventListener("click", () => {
+        nav.classList.add("hidden");
+        animateLines();
+    }));
 </script>
