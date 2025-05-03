@@ -1,23 +1,14 @@
----
-interface Props {
-    highlightColor: string
-}
-
-
-const {highlightColor} = Astro.props; 
----
-
 <section class="px-5 lg:p-6">
-    <h2 class=`text-[${highlightColor}] text-3xl text-center lg:text-start`>Jonathan Posada</h2>
-    <h3 class=`text-[${highlightColor}] text-xl text-center my-4 lg:text-start`>Desarrollador web</h3>
-    <p class="text">Soy egresado de Ingeniería en Desarrollo de Software y estoy especializado en el <span class=`text-[${highlightColor}]`>desarrollo frontend</span>.</p>
+    <h2 class="text-[#9f50ff] text-3xl text-center lg:text-start">Jonathan Posada</h2>
+    <h3 class="text-[#9f50ff] text-xl text-center my-4 lg:text-start">Desarrollador web</h3>
+    <p class="text">Soy egresado de Ingeniería en Desarrollo de Software y estoy especializado en el <span class="text-[#9f50ff]">desarrollo frontend</span>.</p>
     <p class="mt-2 text">Me gusta aprender sobre nuevas tecnologías de programación y desarrollar interfaces de usuario interactivas y dinámicas.</p>
     <div class="mt-5 space-x-2">
         <a href="https://github.com/jonathanj20" target="_blank">
-            <i class="fa-brands fa-github fa-2xl" style=`color: ${highlightColor};`></i>
+            <i class="fa-brands fa-github fa-2xl" style="color: #9f50ff;"></i>
         </a>
         <a href="https://www.linkedin.com/in/jonathan-posada-1154b1360/" target="_blank">
-            <i class="fa-brands fa-linkedin fa-2xl" style=`color: ${highlightColor};`></i>
+            <i class="fa-brands fa-linkedin fa-2xl" style="color: #9f50ff;"></i>
         </a>
     </div>
 <section/>
