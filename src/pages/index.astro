@@ -1,24 +1,27 @@
 ---
 import '../styles/global.css';
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro"
 import Header from "@components/Header.astro";
 import AboutMe from '@components/AboutMe.astro';
 import Experience from '@components/Experience.astro';
 import Education from '@components/Education.astro';
 import Skills from '@components/Skills.astro';
 import Projects from '@components/Projects.astro';
+import ThemeButton from '@components/ThemeButton.astro'
+
+const purpleFont: string = "#9f50ff";
 ---
 
 <Layout>
 	<Header/>
-	<div class="bg-white border-[3px] border-[#b2a7dc] h-70 w-70 mt-[-20px] animate-[spin_3s_linear_infinite] fixed mx-auto top-32 lg:top-36 left-0 right-0 z-[-1]"></div>
-	<div class="flex flex-col space-y-7 lg:justify-between lg:flex-row lg:space-y-0 mt-28">
-		<AboutMe/>
-		<img src="/portfolio-web/my_photo.jpg" alt="Jonathan Posada" class="w-64 mx-auto h-70 rounded-full">
-	</div>
-	<Education/>
-	<Experience/>
-	<Skills/>
-	<Projects/>
+    <div class="bg-white border-[3px] border-[#b2a7dc] h-70 w-70 mt-[-20px] animate-[spin_3s_linear_infinite] fixed mx-auto top-32 lg:top-36 left-0 right-0 z-[-1] whiteElement"></div>
+    <div class="flex flex-col space-y-7 lg:justify-between lg:flex-row lg:space-y-0 mt-28">
+        <AboutMe highlightColor={purpleFont} />
+        <img src="/portfolio-web/my_photo.jpg" alt="Jonathan Posada" class="w-64 mx-auto h-70 rounded-full" />
+    </div>
+    <Education highlightColor={purpleFont} />
+    <Experience highlightColor={purpleFont} />
+    <Skills highlightColor={purpleFont} />
+    <Projects highlightColor={purpleFont} />
+    <ThemeButton highlightColor={purpleFont} />
 </Layout>
-

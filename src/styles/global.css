@@ -3,3 +3,19 @@
 html{
     scroll-behavior: smooth;
 }
+
+.blackElement{
+    background-color: #161515;
+}
+
+.lineWhite{
+    background-color: #fff;
+}
+
+.whiteText{
+    color: #fff;
+}
+
+.btnMenuDark{
+    border-color: white;
+}

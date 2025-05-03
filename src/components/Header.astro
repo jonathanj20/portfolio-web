@@ -24,17 +24,17 @@ const options: Option[] = [
 ];
 ---
 
-<header class="fixed top-0 left-0 w-screen z-10 mx-auto block bg-white">
+<header class="fixed top-0 left-0 w-screen z-10 mx-auto block bg-white whiteElement">
     <div class=`p-4 lg:hidden`>
         <button class="cursor-pointer rounded-md border-[3px] p-2 w-11 h-11 flex items-center justify-center flex-col gap-y-0.5" id="btnMenu">
-             <div class="p-0.5 w-[100%] bg-black transition-all duration-300" id="first-line"></div>
-             <div class="p-0.5 w-[100%] bg-black transition-all duration-300" id="second-line"></div>
-             <div class="p-0.5 w-[100%] bg-black transition-all duration-300" id="third-line"></div>
+             <div class="p-0.5 w-[100%] bg-black transition-all duration-300 lineBlack" id="first-line"></div>
+             <div class="p-0.5 w-[100%] bg-black transition-all duration-300 lineBlack" id="second-line"></div>
+             <div class="p-0.5 w-[100%] bg-black transition-all duration-300 lineBlack" id="third-line"></div>
         </button>
     </div>
     <nav class={`h-0 border-none overflow-hidden transition-all duration-300 text-center lg:h-12 lg:border-0 bg-[#ae9bef] lg:bg-transparent`} id="nav">
         {
-            options.map(option => <a href={option.href} class="block p-3 lg:inline-block options">{option.name}</a>)
+            options.map(option => <a href={option.href} class="block p-3 lg:inline-block options text">{option.name}</a>)
         }
     </nav>
 </header>

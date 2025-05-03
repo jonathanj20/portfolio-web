@@ -27,10 +27,16 @@ const projects: Project[] = [
         link_repo: "https://github.com/jonathanj20/laberinto-canvas-html"
     }
 ];
+
+interface Props {
+    highlightColor: string
+}
+
+const {highlightColor} = Astro.props;
 ---
 
 <section class="px-5 mt-10" id="projects">
-    <h2 class="text-[#6C46F4] text-3xl text-center lg:text-start">Proyectos</h2>
+    <h2 class=`text-[${highlightColor}] text-3xl text-center lg:text-start`>Proyectos</h2>
     <div class="mt-5 space-y-10 lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0">
         {
             projects.map(project => <Project image={project.image} technologies={project.technologies} name={project.name} description={project.description}  link_web={project.link_web} link_repo={project.link_repo}/>)
