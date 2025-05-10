@@ -3,7 +3,8 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <button id="btnTheme" class="cursor-pointer p-3 fixed bottom-12 right-6 rounded-full border-2 border-[#6C46F4] bg-[#6C46F4]">
-    <Icon name={"sunIcon"} size={30} />
+    <Icon name={"moon"} size={30} class={"icon text-white"} />
+    <Icon name={"sun"} size={30} class={"icon hidden"}/>
 </button>
 
 <script>
@@ -13,22 +14,16 @@ import { Icon } from 'astro-icon/components';
     const btnMenu = document.getElementById("btnMenu") as HTMLElement;
     const lineBlack = Array.from(document.getElementsByClassName("lineBlack"));
     const projects = Array.from(document.getElementsByClassName("project"));
+    const icons = document.querySelectorAll(".icon")
 
     btnTheme.addEventListener("click", () => {
-        whiteElements.forEach(element => {
-            element.classList.toggle("blackElement");
-        });
-
-        texts.forEach(text => {
-            text.classList.toggle("whiteText");   
-        })
+        whiteElements.forEach(element => element.classList.toggle("blackElement"));
+        texts.forEach(text => text.classList.toggle("whiteText"))
+        lineBlack.forEach(element => element.classList.toggle("lineWhite"));
+        icons.forEach(icon => icon.classList.toggle("hidden"));
 
         btnMenu.classList.toggle("btnMenuDark");
         
-        lineBlack.forEach(element => {
-            element.classList.toggle("lineWhite");
-        });
-
         projects.forEach(element => {
             element.classList.toggle("border-[#464059]");
             element.classList.toggle("border-[#9f50ff]");
