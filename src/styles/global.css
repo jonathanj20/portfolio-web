@@ -5,7 +5,7 @@ html{
 }
 
 .blackElement{
-    background-color: #161515;
+    background-color: #232529;
 }
 
 .lineWhite{
@@ -14,6 +14,10 @@ html{
 
 .whiteText{
     color: #fff;
+}
+
+.darkGrayText{
+    color: #b2bac7;
 }
 
 .btnMenuDark{

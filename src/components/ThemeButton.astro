@@ -14,13 +14,15 @@ import { Icon } from 'astro-icon/components';
     const btnMenu = document.getElementById("btnMenu") as HTMLElement;
     const lineBlack = Array.from(document.getElementsByClassName("lineBlack"));
     const projects = Array.from(document.getElementsByClassName("project"));
-    const icons = document.querySelectorAll(".icon")
+    const icons = document.querySelectorAll(".icon");
+    const grayText = document.querySelectorAll(".grayText");
 
     btnTheme.addEventListener("click", () => {
         whiteElements.forEach(element => element.classList.toggle("blackElement"));
         texts.forEach(text => text.classList.toggle("whiteText"))
         lineBlack.forEach(element => element.classList.toggle("lineWhite"));
         icons.forEach(icon => icon.classList.toggle("hidden"));
+        grayText.forEach(text => text.classList.toggle("darkGrayText"));
 
         btnMenu.classList.toggle("btnMenuDark");
         

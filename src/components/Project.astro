@@ -13,11 +13,9 @@ const {image, technologies, name, description, link_web, link_repo} = Astro.prop
 
 <div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-auto text project">
     <img src={image} alt={name} class="w-full lg:h-[14em]">
-    <div class="p-3">
-        <p class="mt-2">{technologies.join(" - ")}</p>
-        <h2 class="mt-2">{name}</h2>
-        <p class="mt-2">{description}</p>
-    </div>
+    <p class="px-3 py-2">{technologies.join(" - ")}</p>
+    <h2 class="px-3 py-2">{name}</h2>
+    <p class="px-3 py-2 h-28">{description}</p>
     <div class="grid grid-cols-1 place-items-center gap-5 p-2 lg:flex lg:justify-center w-full">
         <a href={link_web} target="_blank" class="block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-[80%] lg:w-auto text-center text">Ver proyecto</a>
         <a href={link_repo} target="_blank" class="block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-[80%] lg:w-auto text-center text">Repositorio</a>
