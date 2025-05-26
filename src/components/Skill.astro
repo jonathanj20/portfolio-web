@@ -7,7 +7,7 @@ interface Props {
 const {name} = Astro.props;
 ---
 
-<div>
-    <Icon name={name} title={name} size={55} />
+<div class="grid grid-cols-1 place-items-center">
+    <Icon name={name} title={name} size={55}/>
     <p class="text-center text">{name}</p>
 </div>

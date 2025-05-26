@@ -10,19 +10,21 @@ interface Props {
 }
 
 const {image, technologies, name, description, link_web, link_repo} = Astro.props;
+
+const existsLinkWeb = () => link_web !== undefined;
 ---
 
-<div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-auto text project">
+<div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-auto text project space-y-3">
     <img src={image} alt={name} class="w-full lg:h-[14em]">
     <div class="grid grid-cols-3 gap-1 mt-5 place-items-center">
         {
             technologies.map(technologie => <SkillTag name={technologie}/>)
         }
     </div>
-    <h2 class="px-3 py-2">{name}</h2>
-    <p class="px-3 py-2 h-28">{description}</p>
+    <h2 class="px-3 py-2 text-xl">{name}</h2>
+    <p class="px-3 py-2 text-gray-600 grayText">{description}</p>
     <div class="grid grid-cols-1 place-items-center gap-5 p-2 lg:flex lg:justify-center w-full">
-        <a href={link_web} target="_blank" class="block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-[80%] lg:w-auto text-center text">Ver proyecto</a>
-        <a href={link_repo} target="_blank" class="block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-[80%] lg:w-auto text-center text">Repositorio</a>
+        <a href={link_web} target="_blank" class={`${existsLinkWeb() ? "block" : "hidden"} p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-[80%] lg:w-auto text-center text`}>Ver proyecto</a>
+        <a href={link_repo} target="_blank" class={`block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-[80%] ${existsLinkWeb() ? "lg:w-auto": "w-full"} text-center text`}>Repositorio</a>
     </div>
 </div>
