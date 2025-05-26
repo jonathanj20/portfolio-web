@@ -1,4 +1,5 @@
 ---
+import SkillTag from './SkillTag.astro'
 interface Props {
     image: string,
     technologies: string[],
@@ -13,7 +14,11 @@ const {image, technologies, name, description, link_web, link_repo} = Astro.prop
 
 <div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-auto text project">
     <img src={image} alt={name} class="w-full lg:h-[14em]">
-    <p class="px-3 py-2">{technologies.join(" - ")}</p>
+    <div class="grid grid-cols-3 gap-1 mt-5 place-items-center">
+        {
+            technologies.map(technologie => <SkillTag name={technologie}/>)
+        }
+    </div>
     <h2 class="px-3 py-2">{name}</h2>
     <p class="px-3 py-2 h-28">{description}</p>
     <div class="grid grid-cols-1 place-items-center gap-5 p-2 lg:flex lg:justify-center w-full">

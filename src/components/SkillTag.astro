@@ -1,0 +1,26 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    name: string
+}
+
+interface Skill {
+    name: string,
+    color: string
+}
+
+const tags: Skill[] = [
+    {name: "HTML", color: "#e15d1d"},
+    {name: "CSS", color: "#0277bd"},
+    {name: "JavaScript", color: "#f0db4f"}
+]
+
+const {name = "unknown"} = Astro.props;
+const skill = tags.find(skill => skill.name.toLowerCase() === name.toLowerCase()) as Skill;
+---
+
+<div class={`rounded-full p-1 font-semibold text-white flex w-24 gap-x-1 items-center justify-center text-xs`} style={{backgroundColor: skill.color}}>
+    <Icon name={`${skill.name}`} size={20}/>
+    <span>{skill.name}</span>
+</div>
