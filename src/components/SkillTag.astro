@@ -7,22 +7,24 @@ interface Props {
 
 interface Skill {
     name: string,
-    color: string
+    bgColor: string,
+    textColor?: string
 }
 
 const tags: Skill[] = [
-    {name: "HTML", color: "#e15d1d"},
-    {name: "CSS", color: "#0277bd"},
-    {name: "JavaScript", color: "#f0db4f"},
-    {name: "TailwindCSS", color: "#1a6497"},
-    {name: "PHP", color: "#6181b6"}
+    {name: "HTML", bgColor: "#e15d1d"},
+    {name: "CSS", bgColor: "#0277bd"},
+    {name: "JavaScript", bgColor: "#f0db4f", textColor: "#000"},
+    {name: "TailwindCSS", bgColor: "#1a6497"},
+    {name: "PHP", bgColor: "#6181b6"},
+    {name: "MySQL", bgColor: "#e0f3f3", textColor: "#000"}
 ]
 
 const {name = "unknown"} = Astro.props;
 const skill = tags.find(skill => skill.name.toLowerCase() === name.toLowerCase()) as Skill;
 ---
 
-<div class={`rounded-full p-1 font-semibold text-white flex w-24 gap-x-1 items-center justify-center text-xs`} style={{backgroundColor: skill.color}}>
+<div class={`rounded-full p-1 font-semibold ${skill.textColor !== undefined ? "text-["+skill.textColor+"]" : "text-white"} flex w-24 gap-x-1 items-center justify-center text-xs`} style={{backgroundColor: skill.bgColor}}>
     <Icon name={`${skill.name}`} size={20}/>
     <span>{skill.name}</span>
 </div>
