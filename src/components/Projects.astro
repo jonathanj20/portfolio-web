@@ -1,5 +1,6 @@
 ---
-import Project from "./Project.astro"
+import Project from "./Project.astro";
+import ModalProject from "./ModalProject.astro";
 interface Project {
     image: string,
     technologies: string[],
@@ -43,4 +44,8 @@ const projects: Project[] = [
             projects.map(project => <Project image={project.image} technologies={project.technologies} name={project.name} description={project.description}  link_web={project.link_web} link_repo={project.link_repo}/>)
         }
     </div>
+
+    {
+        projects.map(project => <ModalProject id={project.name.replaceAll(" ","")} nameProject={project.name} description={project.description} />)
+    }
 </section>

@@ -1,0 +1,22 @@
+---
+import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
+
+interface Props {
+    id: string,
+    nameProject: string,
+    description: string
+}
+
+const {id, nameProject, description} = Astro.props;
+---
+
+<Modal id={id} class="absolute top-0 left-0 bottom-0 right-0 m-auto">
+    <ModalHeader>
+        <h2>{nameProject}</h2>
+    </ModalHeader>
+    <ModalBody>
+        <p>
+            {description}
+        </p>
+    </ModalBody>
+</Modal> 
