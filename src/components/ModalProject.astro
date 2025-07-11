@@ -1,13 +1,13 @@
 ---
-import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
-
+import { Modal, ModalBody, ModalHeader } from 'free-astro-components';
 interface Props {
     id: string,
     nameProject: string,
-    description: string
+    description: string,
+    pathsMultimedia: string[]
 }
 
-const {id, nameProject, description} = Astro.props;
+const {id, nameProject, description, pathsMultimedia} = Astro.props;
 ---
 
 <Modal id={id} class="absolute top-0 left-0 bottom-0 right-0 m-auto">
@@ -15,8 +15,80 @@ const {id, nameProject, description} = Astro.props;
         <h2>{nameProject}</h2>
     </ModalHeader>
     <ModalBody>
-        <p>
-            {description}
-        </p>
+        <!-- Slider main container -->
+        <div class=`swiper ${pathsMultimedia.length === 0 ? "swiperHidden" : "displaySwiper"}`>
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            {
+              pathsMultimedia.map(path => {
+                if(path.endsWith(".png")){
+                  return(
+                    <div class="swiper-slide">
+                      <img src={path} alt="image">
+                    </div>
+                  )
+                } else if(path.endsWith(".mp4")){
+                  return(
+                    <div class="swiper-slide">
+                      <video src={path} controls></video>
+                    </div>
+                  )
+                }
+              })
+             }
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
     </ModalBody>
 </Modal> 
+
+<style>
+  .swiperHidden{
+    display: none;
+  }
+
+  .displaySwiper{
+    display: block
+  }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import {Navigation, Pagination, Keyboard} from "swiper/modules";
+    import 'swiper/css'; 
+    import "swiper/css/navigation";
+    import "swiper/css/pagination";
+    /**
+     * investigar acerca de modules (módulos)
+     */
+
+    const swiper = new Swiper('.swiper', {
+      modules: [Navigation, Pagination, Keyboard],
+      direction: 'horizontal',
+      slidesPerView: 1,
+      loop: true,
+      keyboard: {
+        enabled: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+</script>

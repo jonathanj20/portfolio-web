@@ -7,7 +7,8 @@ interface Project {
     name: string,
     description: string,
     link_web?: string,
-    link_repo:string
+    link_repo:string,
+    pathsMultimedia: string[]
 }
 
 const projects: Project[] = [
@@ -16,7 +17,8 @@ const projects: Project[] = [
         technologies: ["php", "javascript", "tailwindcss", "mysql"],
         name: "Boda web",
         description: "Aplicación web con invitaciones personalizadas para una boda",
-        link_repo: "https://github.com/jonathanj20/boda-web-js"
+        link_repo: "https://github.com/jonathanj20/boda-web-js",
+        pathsMultimedia: ["/portfolio-web/boda_multimedia/boda-video.mp4", "/portfolio-web/boda_multimedia/boda-1.png", "/portfolio-web/boda_multimedia/boda-2.png"]
     },
     {
         image: "/portfolio-web/plantas-vs-zombies.png",
@@ -24,7 +26,8 @@ const projects: Project[] = [
         name: "Plantas vs Zombies",
         description: "Clon de plantas vs zombies hecho con la librería p5js",
         link_web: "https://jonathanj20.github.io/plantas-vs-zombies/",
-        link_repo: "https://github.com/jonathanj20/plantas-vs-zombies"
+        link_repo: "https://github.com/jonathanj20/plantas-vs-zombies",
+        pathsMultimedia: ["/portfolio-web/pvz_multimedia/pvz-1.png", "/portfolio-web/pvz_multimedia/pvz-2.png", "/portfolio-web/pvz_multimedia/pvz-3.png"]
     },
     {
         image: "/portfolio-web/laberinto.png",
@@ -32,7 +35,8 @@ const projects: Project[] = [
         name: "Laberinto",
         description: "Juego creado utilizando el elemento canvas de HTML",
         link_web: "https://jonathanj20.github.io/laberinto-canvas-html/",
-        link_repo: "https://github.com/jonathanj20/laberinto-canvas-html"
+        link_repo: "https://github.com/jonathanj20/laberinto-canvas-html",
+        pathsMultimedia: ["/portfolio-web/laberinto_multimedia/laberinto-1.png", "/portfolio-web/laberinto_multimedia/laberinto-2.png"]
     },
 ];
 ---
@@ -46,6 +50,6 @@ const projects: Project[] = [
     </div>
 
     {
-        projects.map(project => <ModalProject id={project.name.replaceAll(" ","")} nameProject={project.name} description={project.description} />)
+        projects.map(project => <ModalProject id={project.name.replaceAll(" ","")} nameProject={project.name} description={project.description} pathsMultimedia={project.pathsMultimedia} />)
     }
 </section>
