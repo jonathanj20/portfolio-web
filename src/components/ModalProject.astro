@@ -4,22 +4,20 @@ interface Props {
     id: string,
     nameProject: string,
     description: string,
+    learning?: string, 
     pathsMultimedia: string[]
 }
 
-const {id, nameProject, description, pathsMultimedia} = Astro.props;
+const {id, nameProject, description, learning, pathsMultimedia} = Astro.props;
 ---
 
-<Modal id={id} class="absolute top-0 left-0 bottom-0 right-0 m-auto">
+<Modal id={id} class="absolute top-0 left-0 bottom-0 right-0 m-auto" size="xl">
     <ModalHeader>
         <h2>{nameProject}</h2>
     </ModalHeader>
-    <ModalBody>
-        <!-- Slider main container -->
+    <ModalBody class="space-y-10">
         <div class=`swiper ${pathsMultimedia.length === 0 ? "swiperHidden" : "displaySwiper"}`>
-          <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
-            <!-- Slides -->
             {
               pathsMultimedia.map(path => {
                 if(path.endsWith(".png")){
@@ -38,15 +36,22 @@ const {id, nameProject, description, pathsMultimedia} = Astro.props;
               })
              }
           </div>
-          <!-- If we need pagination -->
+
           <div class="swiper-pagination"></div>
         
-          <!-- If we need navigation buttons -->
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         
-          <!-- If we need scrollbar -->
           <div class="swiper-scrollbar"></div>
+        </div>
+        <div>
+          <h2 class="font-bold text-xl">Descripción</h2>
+          <p class="mt-2" set:html={description}></p>
+        </div>
+        <div>
+          <h2 class="font-bold text-xl">Aprendizaje</h2>
+          <p>En este proyecto aprendí a:</p>
+          <div set:html={learning}></div>
         </div>
     </ModalBody>
 </Modal> 
@@ -67,9 +72,6 @@ const {id, nameProject, description, pathsMultimedia} = Astro.props;
     import 'swiper/css'; 
     import "swiper/css/navigation";
     import "swiper/css/pagination";
-    /**
-     * investigar acerca de modules (módulos)
-     */
 
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination, Keyboard],

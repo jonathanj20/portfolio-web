@@ -6,17 +6,16 @@ interface Props {
     image: string,
     technologies: string[],
     name: string,
-    description: string,
     link_web?: string,
-    link_repo:string   
+    link_repo:string,
 }
 
-const {image, technologies, name, description, link_web, link_repo} = Astro.props;
+const {image, technologies, name, link_web, link_repo} = Astro.props;
 const modalId = name.replaceAll(" ","");
 const existsLinkWeb = () => link_web !== undefined;
 ---
 
-<div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-auto project space-y-3" style="border-width: 4px;">
+<div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-72 project space-y-3" style="border-width: 4px;">
     <img src={image} alt={name} class="w-full lg:h-[14em]">
     <div class="grid grid-cols-2 gap-5 mt-5 place-items-center">
         {
@@ -24,7 +23,6 @@ const existsLinkWeb = () => link_web !== undefined;
         }
     </div>
     <h2 class="px-3 py-2 text-xl text">{name}</h2>
-    <p class="px-3 py-2 text-gray-600 grayText">{description}</p>
     <div class="p-2 w-full text space-y-4">
         <div class="flex flex-col lg:flex-row gap-3">
             <a href={link_web} target="_blank" class={`${existsLinkWeb() ? "block" : "hidden"} p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`} style="border-width: 2px;">Ver proyecto</a>
