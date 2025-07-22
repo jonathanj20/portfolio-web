@@ -1,96 +1,31 @@
 ---
 import { Modal, ModalBody, ModalHeader } from 'free-astro-components';
+import Swiper from './Swiper.astro';
 interface Props {
-    id: string,
-    nameProject: string,
-    description: string,
-    learning?: string, 
-    pathsMultimedia: string[]
+	id: string;
+	nameProject: string;
+	description: string;
+	learning?: string;
+	pathsMultimedia: string[];
 }
 
-const {id, nameProject, description, learning, pathsMultimedia} = Astro.props;
+const { id, nameProject, description, learning, pathsMultimedia } = Astro.props;
 ---
 
 <Modal id={id} class="absolute top-0 left-0 bottom-0 right-0 m-auto" size="xl">
-    <ModalHeader>
-        <h2>{nameProject}</h2>
-    </ModalHeader>
-    <ModalBody class="space-y-10">
-        <div class=`swiper ${pathsMultimedia.length === 0 ? "swiperHidden" : "displaySwiper"}`>
-          <div class="swiper-wrapper">
-            {
-              pathsMultimedia.map(path => {
-                if(path.endsWith(".png")){
-                  return(
-                    <div class="swiper-slide">
-                      <img src={path} alt="image">
-                    </div>
-                  )
-                } else if(path.endsWith(".mp4")){
-                  return(
-                    <div class="swiper-slide">
-                      <video src={path} controls></video>
-                    </div>
-                  )
-                }
-              })
-             }
-          </div>
-
-          <div class="swiper-pagination"></div>
-        
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        
-          <div class="swiper-scrollbar"></div>
-        </div>
-        <div>
-          <h2 class="font-bold text-xl">Descripción</h2>
-          <p class="mt-2" set:html={description}></p>
-        </div>
-        <div>
-          <h2 class="font-bold text-xl">Aprendizaje</h2>
-          <p>En este proyecto aprendí a:</p>
-          <div set:html={learning}></div>
-        </div>
-    </ModalBody>
-</Modal> 
-
-<style>
-  .swiperHidden{
-    display: none;
-  }
-
-  .displaySwiper{
-    display: block
-  }
-</style>
-
-<script>
-    import Swiper from 'swiper';
-    import {Navigation, Pagination, Keyboard} from "swiper/modules";
-    import 'swiper/css'; 
-    import "swiper/css/navigation";
-    import "swiper/css/pagination";
-
-    const swiper = new Swiper('.swiper', {
-      modules: [Navigation, Pagination, Keyboard],
-      direction: 'horizontal',
-      slidesPerView: 1,
-      loop: true,
-      keyboard: {
-        enabled: true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
-</script>
+	<ModalHeader>
+		<h2>{nameProject}</h2>
+	</ModalHeader>
+	<ModalBody class="space-y-10">
+		<Swiper slides={pathsMultimedia} />
+		<div>
+			<h2 class="font-bold text-xl">Descripción</h2>
+			<p class="mt-2" set:html={description} />
+		</div>
+		<div>
+			<h2 class="font-bold text-xl">Aprendizaje</h2>
+			<p>En este proyecto aprendí a:</p>
+			<div set:html={learning} />
+		</div>
+	</ModalBody>
+</Modal>

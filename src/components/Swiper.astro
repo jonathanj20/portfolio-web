@@ -1,0 +1,80 @@
+---
+interface Props {
+	slides: string[];
+}
+
+const { slides } = Astro.props;
+---
+
+<div class=`swiper ${slides.length === 0 ? "swiperHidden" : "displaySwiper"}`>
+	<div class="swiper-wrapper">
+		{
+			slides.map((path) => {
+				if (path.endsWith('.png')) {
+					return (
+						<div class="swiper-slide">
+							<img src={path} alt="image" />
+						</div>
+					);
+				} else if (path.endsWith('.mp4')) {
+					return (
+						<div class="swiper-slide">
+							<video src={path} controls />
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+
+	<div class="swiper-pagination"></div>
+
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+
+	<div class="swiper-scrollbar"></div>
+</div>
+
+<style>
+	.swiperHidden {
+		display: none;
+	}
+
+	.displaySwiper {
+		display: block;
+	}
+</style>
+
+<script>
+	import Swiper from 'swiper';
+	import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+	import 'swiper/css';
+	import 'swiper/css/navigation';
+	import 'swiper/css/pagination';
+
+	/**
+	 * investigar acerca de modules (módulos)
+	 * Entender el frontmatter en astro
+	 */
+
+	const swiper = new Swiper('.swiper', {
+		modules: [Navigation, Pagination, Keyboard],
+		direction: 'horizontal',
+		slidesPerView: 1,
+		loop: true,
+		keyboard: {
+			enabled: true,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		scrollbar: {
+			el: '.swiper-scrollbar',
+		},
+	});
+</script>

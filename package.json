@@ -17,6 +17,7 @@
     "astro": "^5.5.5",
     "astro-icon": "^1.1.5",
     "free-astro-components": "^1.2.0",
+    "photoswipe": "^5.4.4",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.3"
   },
