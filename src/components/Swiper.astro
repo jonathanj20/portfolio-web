@@ -4,10 +4,13 @@ interface Props {
 }
 
 const { slides } = Astro.props;
+
+const areThereSlides = (slides: string[]) =>
+	slides.length === 0 ? 'swiperHidden' : 'displaySwiper';
 ---
 
-<div class=`swiper ${slides.length === 0 ? "swiperHidden" : "displaySwiper"}`>
-	<div class="swiper-wrapper">
+<div class=`swiper ${areThereSlides(slides)}`>
+	<div class="swiper-wrapper" id="my-slider">
 		{
 			slides.map((path) => {
 				if (path.endsWith('.png')) {
@@ -51,11 +54,6 @@ const { slides } = Astro.props;
 	import 'swiper/css';
 	import 'swiper/css/navigation';
 	import 'swiper/css/pagination';
-
-	/**
-	 * investigar acerca de modules (módulos)
-	 * Entender el frontmatter en astro
-	 */
 
 	const swiper = new Swiper('.swiper', {
 		modules: [Navigation, Pagination, Keyboard],

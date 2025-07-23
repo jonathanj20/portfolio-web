@@ -1,58 +1,91 @@
 ---
-import Project from "./Project.astro";
-import ModalProject from "./ModalProject.astro";
+import Project from './Project.astro';
+import ModalProject from './ModalProject.astro';
+
 interface Project {
-    image: string,
-    technologies: string[],
-    name: string,
-    description: string,
-    learning?: string,
-    link_web?: string,
-    link_repo:string,
-    pathsMultimedia: string[]
+	image: string;
+	technologies: string[];
+	name: string;
+	description: string;
+	learning?: string;
+	link_web?: string;
+	link_repo: string;
+	pathsMultimedia: string[];
 }
+
 const projects: Project[] = [
-    {
-        image: "/portfolio-web/boda_project.png",
-        technologies: ["php", "javascript", "tailwindcss", "mysql"],
-        name: "Boda web",
-        description: "Aplicación web para una boda que incluye invitaciones personalizadas para cada invitado, una galería con fotos de los novios, ubicaciones y confirmación de asistencia por whatsapp. <br> Los datos que contienen las invitaciones personalizadas son el nombre del invitado, el número de adultos que puede llevar el invitado a la boda y el número de niños en caso de que al invitado se le haya permitido llevar niños a la boda, para que el usuario pueda ver su invitación debe de ingresar su nombre en el campo de texto al inicio de la página.",
-        learning: "<ul class='list-disc'><li>Resolver problemas utilizando librerías, por ejemplo, para crear un slider en la galería de imagenes usé la librería swiper para agilizar y facilitar su desarrollo.</li><li>Conectar una base datos y ejecutar consultas con PHP.</li><li>Integrar nuevas fuentes de letra y colores personalizados en Tailwind.</li><li>Utilizar la API de WhatsApp para redireccionar al usuario a los chats de los novios.</li></ul>",
-        link_repo: "https://github.com/jonathanj20/boda-web-js",
-        pathsMultimedia: ["/portfolio-web/boda_multimedia/boda-video.mp4", "/portfolio-web/boda_multimedia/boda-1.png", "/portfolio-web/boda_multimedia/boda-2.png"]
-    },
-    {
-        image: "/portfolio-web/plantas-vs-zombies.png",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        name: "Plantas vs Zombies",
-        description: "Clon de plantas vs zombies hecho con la librería p5js",
-        learning: "<ul class='list-disc'><li>Cargar imágenes con JavaScript usando la librería p5js.</li><li>Añadirle movimientos a los sprites.</li><li>Utlizar funciones incluídas en la librería como mouseClicked y mouseMoved.</li></ul>",
-        link_web: "https://jonathanj20.github.io/plantas-vs-zombies/",
-        link_repo: "https://github.com/jonathanj20/plantas-vs-zombies",
-        pathsMultimedia: ["/portfolio-web/pvz_multimedia/pvz-1.png", "/portfolio-web/pvz_multimedia/pvz-2.png", "/portfolio-web/pvz_multimedia/pvz-3.png"]
-    },
-    {
-        image: "/portfolio-web/laberinto.png",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        name: "Laberinto",
-        description: "Juego creado utilizando el elemento canvas de HTML",
-        learning: "<ul class='list-disc'><li>Dibujar figuras sobre el canvas y darles movimientos.</li><li>Usar eventos como keydown, ended y load en JavaScript.</li><li>Reproducir audios con JavaScript.</li></ul>",
-        link_web: "https://jonathanj20.github.io/laberinto-canvas-html/",
-        link_repo: "https://github.com/jonathanj20/laberinto-canvas-html",
-        pathsMultimedia: ["/portfolio-web/laberinto_multimedia/laberinto-1.png", "/portfolio-web/laberinto_multimedia/laberinto-2.png"]
-    },
+	{
+		image: '/portfolio-web/boda_project.png',
+		technologies: ['php', 'javascript', 'tailwindcss', 'mysql'],
+		name: 'Boda web',
+		description:
+			'Aplicación web para una boda que incluye invitaciones personalizadas para cada invitado, una galería con fotos de los novios, ubicaciones y confirmación de asistencia por whatsapp. <br> Los datos que contienen las invitaciones personalizadas son el nombre del invitado, el número de adultos que puede llevar el invitado a la boda y el número de niños en caso de que al invitado se le haya permitido llevar niños a la boda, para que el usuario pueda ver su invitación debe de ingresar su nombre en el campo de texto al inicio de la página.',
+		learning:
+			"<ul class='list-disc'><li>Resolver problemas utilizando librerías, por ejemplo, para crear un slider en la galería de imagenes usé la librería swiper para agilizar y facilitar su desarrollo.</li><li>Conectar una base datos y ejecutar consultas con PHP.</li><li>Integrar nuevas fuentes de letra y colores personalizados en Tailwind.</li><li>Utilizar la API de WhatsApp para redireccionar al usuario a los chats de los novios.</li></ul>",
+		link_repo: 'https://github.com/jonathanj20/boda-web-js',
+		pathsMultimedia: [
+			'/portfolio-web/boda_multimedia/boda-video.mp4',
+			'/portfolio-web/boda_multimedia/boda-1.png',
+			'/portfolio-web/boda_multimedia/boda-2.png',
+		],
+	},
+	{
+		image: '/portfolio-web/plantas-vs-zombies.png',
+		technologies: ['HTML', 'CSS', 'JavaScript'],
+		name: 'Plantas vs Zombies',
+		description: 'Clon de plantas vs zombies hecho con la librería p5js',
+		learning:
+			"<ul class='list-disc'><li>Cargar imágenes con JavaScript usando la librería p5js.</li><li>Añadirle movimientos a los sprites.</li><li>Utlizar funciones incluídas en la librería como mouseClicked y mouseMoved.</li></ul>",
+		link_web: 'https://jonathanj20.github.io/plantas-vs-zombies/',
+		link_repo: 'https://github.com/jonathanj20/plantas-vs-zombies',
+		pathsMultimedia: [
+			'/portfolio-web/pvz_multimedia/pvz-1.png',
+			'/portfolio-web/pvz_multimedia/pvz-2.png',
+			'/portfolio-web/pvz_multimedia/pvz-3.png',
+		],
+	},
+	{
+		image: '/portfolio-web/laberinto.png',
+		technologies: ['HTML', 'CSS', 'JavaScript'],
+		name: 'Laberinto',
+		description: 'Juego creado utilizando el elemento canvas de HTML',
+		learning:
+			"<ul class='list-disc'><li>Dibujar figuras sobre el canvas y darles movimientos.</li><li>Usar eventos como keydown, ended y load en JavaScript.</li><li>Reproducir audios con JavaScript.</li></ul>",
+		link_web: 'https://jonathanj20.github.io/laberinto-canvas-html/',
+		link_repo: 'https://github.com/jonathanj20/laberinto-canvas-html',
+		pathsMultimedia: [
+			'/portfolio-web/laberinto_multimedia/laberinto-1.png',
+			'/portfolio-web/laberinto_multimedia/laberinto-2.png',
+		],
+	},
 ];
 ---
 
 <section class="px-5 mt-10" id="projects">
-    <h2 class="text-[#9f50ff] text-3xl text-center lg:text-start">Proyectos</h2>
-    <div class="mt-5 space-y-10 lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0">
-        {
-            projects.map(project => <Project image={project.image} technologies={project.technologies} name={project.name}  link_web={project.link_web} link_repo={project.link_repo} />)
-        }
-    </div>
+	<h2 class="text-[#9f50ff] text-3xl text-center lg:text-start">Proyectos</h2>
+	<div class="mt-5 space-y-10 lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0">
+		{
+			projects.map((project) => (
+				<Project
+					image={project.image}
+					technologies={project.technologies}
+					name={project.name}
+					link_web={project.link_web}
+					link_repo={project.link_repo}
+				/>
+			))
+		}
+	</div>
 
-    {
-        projects.map(project => <ModalProject id={project.name.replaceAll(" ","")} nameProject={project.name} description={project.description} learning={project.learning} pathsMultimedia={project.pathsMultimedia} />)
-    }
+	{
+		projects.map((project) => (
+			<ModalProject
+				id={project.name.replaceAll(' ', '')}
+				nameProject={project.name}
+				description={project.description}
+				learning={project.learning}
+				pathsMultimedia={project.pathsMultimedia}
+			/>
+		))
+	}
 </section>

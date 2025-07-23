@@ -1,52 +1,90 @@
 ---
-import SkillTag from './SkillTag.astro'
-import { Button } from 'free-astro-components'
+import SkillTag from './SkillTag.astro';
+import { Button } from 'free-astro-components';
 
 interface Props {
-    image: string,
-    technologies: string[],
-    name: string,
-    link_web?: string,
-    link_repo:string,
+	image: string;
+	technologies: string[];
+	name: string;
+	link_web?: string;
+	link_repo: string;
 }
 
-const {image, technologies, name, link_web, link_repo} = Astro.props;
-const modalId = name.replaceAll(" ","");
+const { image, technologies, name, link_web, link_repo } = Astro.props;
+const modalId = name.replaceAll(' ', '');
 const existsLinkWeb = () => link_web !== undefined;
 ---
 
-<div class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-72 project space-y-3" style="border-width: 4px;">
-    <img src={image} alt={name} class="w-full lg:h-[14em]">
-    <div class="grid grid-cols-2 gap-5 mt-5 place-items-center">
-        {
-            technologies.map(technologie => <SkillTag name={technologie}/>)
-        }
-    </div>
-    <h2 class="px-3 py-2 text-xl text">{name}</h2>
-    <div class="p-2 w-full text space-y-4">
-        <div class="flex flex-col lg:flex-row gap-3">
-            <a href={link_web} target="_blank" class={`${existsLinkWeb() ? "block" : "hidden"} p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`} style="border-width: 2px;">Ver proyecto</a>
-            <a href={link_repo} target="_blank" class={`block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`} style="border-width: 2px;">Repositorio</a>
-        </div>
-        <div>
-            <Button label="Ver detalles" class="p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto cursor-pointer"  data-modal-trigger={modalId} class="button text"/>
-        </div>
-    </div>
+<div
+	class="w-[90%] mx-auto border-4 border-[#9f50ff] lg:w-72 project space-y-3"
+	style="border-width: 4px;"
+>
+	<div id="imageContainer">
+		<a
+			href={image}
+			data-pswp-width="600"
+			data-pswp-height="450"
+			target="_blank"
+		>
+			<img src={image} alt={name} class="w-full lg:h-[14em]" />
+		</a>
+	</div>
+	<div class="grid grid-cols-2 gap-5 mt-5 place-items-center">
+		{technologies.map((technologie) => <SkillTag name={technologie} />)}
+	</div>
+	<h2 class="px-3 py-2 text-xl text">{name}</h2>
+	<div class="p-2 w-full text space-y-4">
+		<div class="flex flex-col lg:flex-row gap-3">
+			<a
+				href={link_web}
+				target="_blank"
+				class={`${existsLinkWeb() ? 'block' : 'hidden'} p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`}
+				style="border-width: 2px;">Ver proyecto</a
+			>
+			<a
+				href={link_repo}
+				target="_blank"
+				class={`block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`}
+				style="border-width: 2px;">Repositorio</a
+			>
+		</div>
+		<div>
+			<Button
+				label="Ver detalles"
+				class="p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto cursor-pointer"
+				data-modal-trigger={modalId}
+				class="button text"
+			/>
+		</div>
+	</div>
 </div>
 
 <style>
-    .button{
-        --ac-btn-border-radius: 0.25rem;
-        --ac-btn-font-weight: 500;
-        background-color: transparent;
-        border-color: #6C46F4;
-        width: 100%;
-        color: #6C46F4;
-        padding: 10px;
-    }
+	.button {
+		--ac-btn-border-radius: 0.25rem;
+		--ac-btn-font-weight: 500;
+		background-color: transparent;
+		border-color: #6c46f4;
+		width: 100%;
+		color: #6c46f4;
+		padding: 10px;
+	}
 
-    .button:hover{
-        background-color: #6C46F4;
-        color: white;
-    }
+	.button:hover {
+		background-color: #6c46f4;
+		color: white;
+	}
 </style>
+
+<script>
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+	import 'photoswipe/style.css';
+
+	const lightbox = new PhotoSwipeLightbox({
+		gallery: '#imageContainer',
+		children: 'a',
+		pswpModule: () => import('photoswipe'),
+	});
+
+	lightbox.init();
+</script>
