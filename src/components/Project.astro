@@ -38,22 +38,21 @@ const existsLinkWeb = () => link_web !== undefined;
 			<a
 				href={link_web}
 				target="_blank"
-				class={`${existsLinkWeb() ? 'block' : 'hidden'} p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`}
+				class={`${existsLinkWeb() ? 'block' : 'hidden'} text p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center  mx-auto hover:bg-[#6c46f4] hover:text-white transition-all duration-500`}
 				style="border-width: 2px;">Ver proyecto</a
 			>
 			<a
 				href={link_repo}
 				target="_blank"
-				class={`block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto`}
+				class={`block p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto hover:bg-[#6c46f4] hover:text-white transition-all duration-500`}
 				style="border-width: 2px;">Repositorio</a
 			>
 		</div>
 		<div>
 			<Button
 				label="Ver detalles"
-				class="p-2.5 border-2 border-[#6C46F4] text-[#6C46F4] rounded w-full text-center text mx-auto cursor-pointer"
+				class="button text p-2.5 border-2 border-[#6C46F4] rounded w-full text-center text mx-auto cursor-pointer font-[Arial]"
 				data-modal-trigger={modalId}
-				class="button text"
 			/>
 		</div>
 	</div>
@@ -68,6 +67,8 @@ const existsLinkWeb = () => link_web !== undefined;
 		width: 100%;
 		color: #6c46f4;
 		padding: 10px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
 	}
 
 	.button:hover {
