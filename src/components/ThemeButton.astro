@@ -3,32 +3,47 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <button id="btnTheme" class="cursor-pointer p-3 fixed bottom-12 right-6 rounded-full border-2 border-[#6C46F4] bg-[#6C46F4]">
-    <Icon name={"moon"} size={30} class={"icon text-white"} />
-    <Icon name={"sun"} size={30} class={"icon hidden"}/>
+	<Icon name={'moon'} size={30} class={'icon text-white'} />
+	<Icon name={'sun'} size={30} class={'icon hidden'} />
 </button>
 
 <script>
-    const btnTheme = document.getElementById("btnTheme") as HTMLElement;
-    const whiteElements = Array.from(document.getElementsByClassName("whiteElement"));
-    const texts = Array.from(document.getElementsByClassName("text"));
-    const btnMenu = document.getElementById("btnMenu") as HTMLElement;
-    const lineBlack = Array.from(document.getElementsByClassName("lineBlack"));
-    const projects = Array.from(document.getElementsByClassName("project"));
-    const icons = document.querySelectorAll(".icon");
-    const grayText = document.querySelectorAll(".grayText");
+	const btnTheme = document.getElementById('btnTheme') as HTMLElement;
+	const whiteElements = Array.from(document.getElementsByClassName('whiteElement'));
+	const texts = Array.from(document.getElementsByClassName('text'));
+	const btnMenu = document.getElementById('btnMenu') as HTMLElement;
+	const lineBlack = Array.from(document.getElementsByClassName('lineBlack'));
+	const projects = Array.from(document.getElementsByClassName('project'));
+	const icons = document.querySelectorAll('.icon');
+	const grayText = document.querySelectorAll('.grayText');
 
-    btnTheme.addEventListener("click", () => {
-        whiteElements.forEach(element => element.classList.toggle("blackElement"));
-        texts.forEach(text => text.classList.toggle("whiteText"))
-        lineBlack.forEach(element => element.classList.toggle("lineWhite"));
-        icons.forEach(icon => icon.classList.toggle("hidden"));
-        grayText.forEach(text => text.classList.toggle("darkGrayText"));
+	const setDarkTheme = () => {
+		whiteElements.forEach((element) =>
+			element.classList.toggle('blackElement')
+		);
+		texts.forEach((text) => text.classList.toggle('whiteText'));
+		lineBlack.forEach((element) => element.classList.toggle('lineWhite'));
+		icons.forEach((icon) => icon.classList.toggle('hidden'));
+		grayText.forEach((text) => text.classList.toggle('darkGrayText'));
 
-        btnMenu.classList.toggle("btnMenuDark");
-        
-        projects.forEach(element => {
-            element.classList.toggle("border-[#464059]");
-            element.classList.toggle("border-main");
-        })
-    });
+		btnMenu.classList.toggle('btnMenuDark');
+
+		projects.forEach((element) => {
+			element.classList.toggle('border-[#464059]');
+			element.classList.toggle('border-main');
+		});
+	};
+
+
+	console.log(typeof localStorage.getItem("isDark"));
+	btnTheme.addEventListener('click', () => {
+		localStorage.setItem('isDark', JSON.stringify(!JSON.parse(localStorage.getItem('isDark') as any)));
+		setDarkTheme();
+	});
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (JSON.parse(localStorage.getItem('isDark') as string)) {
+			setDarkTheme();
+		}
+	});
 </script>
