@@ -34,9 +34,7 @@ import { Icon } from 'astro-icon/components';
 		});
 	};
 
-
-	console.log(typeof localStorage.getItem("isDark"));
-	btnTheme.addEventListener('click', () => {
+	btnTheme.addEventListener('click', () => { 
 		localStorage.setItem('isDark', JSON.stringify(!JSON.parse(localStorage.getItem('isDark') as any)));
 		setDarkTheme();
 	});

@@ -15,10 +15,7 @@ const modalId = name.replaceAll(' ', '');
 const existsLinkWeb = () => link_web !== undefined;
 ---
 
-<div
-	class="w-[90%] mx-auto border-4 border-main lg:w-72 project space-y-3"
-	style="border-width: 4px;"
->
+<div class="w-[90%] mx-auto border-4 border-main lg:w-72 project space-y-3" style="border-width: 4px;">
 	<div id="imageContainer">
 		<a
 			href={image}
@@ -51,7 +48,7 @@ const existsLinkWeb = () => link_web !== undefined;
 		<div>
 			<Button
 				label="Ver detalles"
-				class="button text p-2.5 border-2 border-[#6C46F4] rounded w-full text-center text mx-auto cursor-pointer font-[Arial]"
+				class="button text p-2.5 border-2 rounded w-full text-center text mx-auto cursor-pointer"
 				data-modal-trigger={modalId}
 			/>
 		</div>
