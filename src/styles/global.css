@@ -17,7 +17,7 @@ html{
 }
 
 .whiteText{
-    color: #fff;
+    color: #fff !important;
 }
 
 .darkGrayText{
