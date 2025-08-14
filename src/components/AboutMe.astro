@@ -1,17 +1,29 @@
 ---
-import { Icon } from "astro-icon/components"
+import { Icon } from 'astro-icon/components';
 ---
 
 <section class="px-5 lg:p-6">
-    <h2 class="text-main text-3xl text-center lg:text-start">Jonathan Posada</h2>
-    <h3 class="text-main text-xl text-center my-4 lg:text-start">Desarrollador Frontend</h3>
-    <p class="text">Soy egresado de Ingeniería en Desarrollo de Software, me gusta aprender sobre nuevas tecnologías de programación y desarrollar interfaces de usuario interactivas y dinámicas. </p>
-    <div class="mt-5 flex gap-x-2">
-        <a href="https://github.com/jonathanj20" target="_blank">
-            <Icon name={"github"} size={40}/>
-        </a>
-        <a href="https://www.linkedin.com/in/jonathan-posada-1154b1360/" target="_blank">
-            <Icon name={"linkedin"} size={40}/>
-        </a>
-    </div>
-<section/>
+	<h2 class="text-main text-3xl text-center lg:text-start">Jonathan Posada</h2>
+	<h3 class="text-main text-xl text-center my-4 lg:text-start">
+		Desarrollador Frontend
+	</h3>
+	<p class="text">
+		Soy egresado de Ingeniería en Desarrollo de Software, me gusta aprender
+		sobre nuevas tecnologías de programación y desarrollar interfaces de usuario
+		interactivas y dinámicas.
+	</p>
+	<div class="mt-5 flex gap-x-2">
+		<a href="https://github.com/jonathanj20" target="_blank">
+			<Icon name={'github'} size={40} />
+		</a>
+		<a href="https://www.linkedin.com/in/jonathan-posada-1154b1360/" target="_blank">
+			<Icon name={'linkedin'} size={40} />
+		</a>
+		<a href="/portfolio-web/cv-jonathan_posada.pdf" download class={`text-[#6C46F4] rounded text-center text border-[#6C46F4] hover:bg-[#6c46f4] hover:text-white transition-all duration-500 py-1 px-2 group`} style="border-width: 2px;">
+			Descargar CV
+			<Icon name={'download'} size={40} class={'inline-block group-hover:hidden'} id={"btnDownload"}/>
+            <Icon name={'downloadWhite'} size={40} class={'hidden group-hover:inline-block'} id={"btnDownloadWhite"}/>
+		</a>
+	</div>
+	<section></section>
+</section>
