@@ -2,6 +2,7 @@
 
 @theme{
     --color-main: #9f50ff;
+    --breakpoint-middle: 60rem;
 }
 
 html{
