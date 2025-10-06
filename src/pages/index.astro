@@ -1,26 +1,26 @@
 ---
 import '../styles/global.css';
-import Layout from "../layouts/Layout.astro"
-import Header from "@components/Header.astro";
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/Header.astro';
 import AboutMe from '@components/AboutMe.astro';
 import Experience from '@components/Experience.astro';
 import Education from '@components/Education.astro';
 import Skills from '@components/Skills.astro';
 import Projects from '@components/Projects.astro';
 import ThemeButton from '@components/ThemeButton.astro';
-import ContactForm from "@components/ContactForm.astro";
+import ContactForm from '@components/ContactForm.astro';
 ---
 
 <Layout>
-	<Header/>
-  <div class="flex flex-col space-y-7 lg:justify-between lg:flex-row lg:space-y-0 mt-28">
-    <AboutMe />
-    <img src="/portfolio-web/my_photo.jpg" alt="Jonathan Posada" class="w-64 mx-auto h-70 rounded-full" />
-  </div>
-  <Education />
-  <Experience />
-  <Skills />
-  <Projects />
-  <ThemeButton />
-  <ContactForm/>
+	<Header />
+	<div class="flex flex-col space-y-7 lg:justify-between lg:flex-row lg:space-y-0 mt-28">
+		<AboutMe />
+		<img src="/portfolio-web/my_photo.jpg" alt="Jonathan Posada" class="w-64 mx-auto h-70 rounded-full"/>
+	</div>
+	<Education />
+	<Experience />
+	<Skills />
+	<Projects />
+	<ThemeButton />
+	<ContactForm />
 </Layout>

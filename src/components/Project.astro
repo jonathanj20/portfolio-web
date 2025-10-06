@@ -16,10 +16,7 @@ const modalId = name.replaceAll(' ', '');
 const existsLinkWeb = () => link_web !== undefined;
 ---
 
-<div
-	class="w-[90%] mx-auto border-4 border-main lg:w-72 project space-y-3"
-	style="border-width: 4px;"
->
+<div class="w-[90%] mx-auto border-4 border-main lg:w-72 project space-y-3" style="border-width: 4px;">
 	<div id="imageContainer">
 		<a
 			href={image}
@@ -27,11 +24,11 @@ const existsLinkWeb = () => link_web !== undefined;
 			data-pswp-height="450"
 			target="_blank"
 		>
-			<img src={image} alt={name} class="w-full lg:h-[14em]" />
+			<img src={image} alt={name} class="w-full lg:h-[14em] object-cover" />
 		</a>
 	</div>
-	<div class="grid grid-cols-2 gap-5 mt-5 place-items-center">
-		{technologies.map((technologie) => <SkillTag name={technologie} />)}
+	<div class="grid grid-cols-2 gap-5 mt-5 place-items-center min-h-[76px]">
+		{technologies.map((technologie: string) => <SkillTag name={technologie} />)}
 	</div>
 	<h2 class="px-3 py-2 text-xl text">{name}</h2>
 	<div class="p-2 w-full text space-y-4">
